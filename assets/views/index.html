@@ -358,18 +358,18 @@
                 <h2>Book a Table</h2>
             </hgroup>
             <div class="form">
-                <form action="#">
-                    <input type="text" name="name" placeholder="Your Name" />
-                    <input type="email" name="email" placeholder="Your Email" />
-                    <input type="tel" name="phone" placeholder="Your Phone" />
-                    <input type="date" name="date" placeholder="Date" />
-                    <input type="time" name="time" placeholder="Time" />
-                    <input type="number" name="numpeople" placeholder="# of people" />
-                    <textarea name="message" placeholder="Message"></textarea>
+                <form  action="/" method="post"> <!-- Update the action attribute -->
+                    <input type="text" name="name" id="name" placeholder="Your Name" />
+                    <input type="email" name="email" id="email" placeholder="Your Email" />
+                    <input type="tel" name="phone" id="phone" placeholder="Your Phone" />
+                    <input type="date" name="date" id="date" placeholder="Date" />
+                    <input type="time" name="time" id="time" placeholder="Time" />
+                    <input type="number" name="numpeople" id="numpeople" placeholder="# of people" />
+                    <textarea name="message" id="message" placeholder="Message"></textarea>
                     <button type="submit">Book a Table</button>
                 </form>
             </div>
-        </div>
+            
     </section>
 
     <section id="testimonials">
@@ -643,6 +643,9 @@
                 gtt.style.display = 'none'
             }
         })
+
+      
+
     </script>
 </body>
 </html>
