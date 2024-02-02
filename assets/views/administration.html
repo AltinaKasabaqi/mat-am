@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/administration.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button id="porositBtn">Porosit</button>
+        <button id="rezervimetBtn">Rezervimet</button>
+    </div>
+
+    <!-- Modal për porosit -->
+    <div id="porositModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Ky është modal për porosit.</p>
+        </div>
+    </div>
+
+    <!-- Modal për rezervimet -->
+    <!-- Modal për rezervimet -->
+    <div id="rezervimetModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe src="/rezervimeDashboard" style="width: 100%; height: 100%; border: none;"></iframe>
+        </div>
+    </div>
+
+    
+    
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Merr elementët
+    var porositModal = document.getElementById('porositModal');
+    var rezervimetModal = document.getElementById('rezervimetModal');
+    var porositBtn = document.getElementById('porositBtn');
+    var rezervimetBtn = document.getElementById('rezervimetBtn');
+    var closeBtns = document.getElementsByClassName('close');
+
+    // Paraqit modalin për porosit kur klikohet butoni
+    porositBtn.onclick = function() {
+        porositModal.style.display = 'block';
+    }
+
+    // Paraqit modalin për rezervimet kur klikohet butoni
+    rezervimetBtn.onclick = function() {
+        rezervimetModal.style.display = 'block';
+    }
+
+    // Mbyll modalin kur klikohet butoni për mbyllje
+    for(var i = 0; i < closeBtns.length; i++) {
+        closeBtns[i].onclick = function() {
+            porositModal.style.display = 'none';
+            rezervimetModal.style.display = 'none';
+        }
+    }
+
+    // Mbyll modalin kur klikohet jashtë modalit
+    window.onclick = function(event) {
+        if (event.target == porositModal || event.target == rezervimetModal) {
+            porositModal.style.display = 'none';
+            rezervimetModal.style.display = 'none';
+        }
+    }
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Dashboard</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #fff;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reservation Dashboard</h1>
+
+    <table id="reservations-table">
+        <tr>
+            <th>Klienti</th>
+            <th>Email</th>
+            <th>Nr Tel</th>
+            <th>Nr Personave</th>
+            <th>Data</th>
+            <th>Ora</th>
+            <th>Mesazhi</th>
+        </tr>
+        <!-- Data will be dynamically inserted here -->
+    </table>
+
+    <script>
+        // Vendosja e të dhënave në tabelë
+        fetch('/rezervime') // Kërkesa GET në rruajtë e rezervimeve
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('reservations-table');
+                data.forEach(reservation => {
+                    const row = table.insertRow();
+                    // Shto të dhënat e rezervimit në rresht
+                    row.insertCell().textContent = reservation.Klienti;
+                    row.insertCell().textContent = reservation.email;
+                    row.insertCell().textContent = reservation.nr_tel;
+                    row.insertCell().textContent = reservation.Nr_Personave;
+                    row.insertCell().textContent = reservation.Data;
+                    row.insertCell().textContent = reservation.Ora;
+                    row.insertCell().textContent = reservation.mesazhi;
+                });
+            })
+            .catch(error => console.error('Gabim gjatë nxjerrjes së rezervimeve:', error));
+    </script>
+</body>
+</html>
