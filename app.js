@@ -61,7 +61,7 @@ app.get('/administration', verifySession, (req, res) => {
         } else {
             res.json(results); 
             // console.log(results);// Kthehet rezultati në format JSON
-            // res.sendFile(path.join(__dirname, 'assets', 'views', 'rezervimetDashboard.html'));
+            res.sendFile(path.join(__dirname, 'assets', 'views', 'rezervimetDashboard.html'));
         }
     });
   
@@ -70,6 +70,11 @@ app.get('/administration', verifySession, (req, res) => {
 app.get('/rezervimeDashboard', verifySession, (req, res) => {
   res.sendFile(path.join(__dirname, 'assets', 'views', 'rezervimetDashboard.html'));
 });
+
+app.get('/administration', verifySession, (req, res) => {
+  res.sendFile(path.join(__dirname, 'assets', 'views', 'administration.html'));
+});
+
 
 app.post('/administration', (req, res) => {
   const password = req.body.password;
@@ -87,6 +92,7 @@ app.get('/logout', (req, res) => {
   req.session.destroy();
   res.send('Sesioni u shkëput.');
 });
+
 
 // Route to handle form submission
 // Route to handle form submission

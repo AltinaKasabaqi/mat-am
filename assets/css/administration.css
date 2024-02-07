@@ -57,3 +57,10 @@
     text-decoration: none;
     cursor: pointer;
 }
+.welcome-text {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
